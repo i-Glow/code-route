@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Flex = styled.div`
+  width: ${({ w }) => w};
+  height: ${({ h }) => h};
   display: flex;
   justify-content: ${({ jc }) => (jc ? jc : "center")};
   align-items: ${({ ai }) => (ai ? ai : "center")};

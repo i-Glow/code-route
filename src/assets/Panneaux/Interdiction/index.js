@@ -100,3 +100,18 @@ export const interdiction = [
     images: [{ img: panneaux_interdiction }],
   },
 ];
+
+export default [
+  { img: B3, choices: [], solution: 3 },
+  { img: B6d, choices: [], solution: 3 },
+  { img: B9a, choices: [], solution: 3 },
+  { img: B11, choices: [], solution: 3 },
+  { img: B12, choices: [], solution: 3 },
+  { img: B14_50, choices: [], solution: 3 },
+  { img: B14_110, choices: [], solution: 3 },
+  { img: B15, choices: [], solution: 3 },
+  { img: B31, choices: [], solution: 3 },
+  { img: B34, choices: [], solution: 3 },
+  { img: panneau_stationnement_1_15, choices: [], solution: 3 },
+  { img: panneau_stationnement_16_31, choices: [], solution: 3 },
+];

@@ -6,6 +6,8 @@ import Panneaux from "./Components/Courses/Panneaux/Panneaux";
 import PanneauxTemplate from "./Components/Courses/Panneaux/PanneauxTemplate";
 import OutletTemplate from "./Components/Courses/Panneaux/Danger/OutletTemplate";
 import Priorite from "./Components/Courses/Priorite/Priorite";
+import Test from "./Components/TestPage/Test";
+
 function App() {
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
@@ -17,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/courses" exact element={<Courses />} />
+        <Route path="/test" exact element={<Test />} />
         <Route path="/panneaux" exact element={<Panneaux />} />
         <Route path="/panneaux" element={<PanneauxTemplate />}>
           <Route path="dangers" element={<OutletTemplate />} />

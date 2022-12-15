@@ -33,3 +33,9 @@ export const obligation = [
     images: [{ img: panneaux_obligation }],
   },
 ];
+
+export default [
+  {img: B22a, choices: [], response: 4},
+  {img: B40, choices: [], response: 4},
+  {img: obligation2d, choices: [], response: 4} 
+]
