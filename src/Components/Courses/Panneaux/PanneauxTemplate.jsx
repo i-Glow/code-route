@@ -51,10 +51,7 @@ export default function PanneauxTemplate() {
             <HoverLink to="/">awd</HoverLink>
           </LinkGroup>
         </LinkGroup>
-        <LinkGroup url="/" name="Test">
-          <HoverLink to="/">ad</HoverLink>
-          <HoverLink to="/">awd</HoverLink>
-        </LinkGroup>
+        <HoverLink to="/test">Test</HoverLink>
       </SideBar>
       <Outlet />
     </Wrapper>

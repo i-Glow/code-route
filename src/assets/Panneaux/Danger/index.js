@@ -97,3 +97,24 @@ const danger = [
 ];
 
 export { danger };
+
+export default [
+  { img: A1a, choices: [], solution: 2 },
+  { img: A1c, choices: [], solution: 1 },
+  { img: A2b, choices: [], solution: 1 },
+  { img: A3, choices: [], solution: 1 },
+  { img: A3b, choices: [], solution: 1 },
+  { img: A4, choices: [], solution: 1 },
+  { img: A13a, choices: [], solution: 1 },
+  { img: A13b, choices: [], solution: 1 },
+  { img: A15a1, choices: [], solution: 1 },
+  { img: A16, choices: [], solution: 1 },
+  { img: A17, choices: [], solution: 1 },
+  { img: A18, choices: [], solution: 1 },
+  { img: A19, choices: [], solution: 1 },
+  { img: ic_cdp, choices: [], solution: 1 },
+  { img: ic_pad, choices: [], solution: 1 },
+  { img: ic_prio_ponc, choices: [], solution: 1 },
+  { img: ic_stop, choices: [], solution: 1 },
+  { img: panneau_travaux, choices: [], solution: 1 },
+];

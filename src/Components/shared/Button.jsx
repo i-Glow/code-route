@@ -35,8 +35,8 @@ export const OutlinedButton = styled(Base)`
   border-color: ${({ border }) => (border ? border : "var(--dark-blue)")};
 
   &:hover {
-    background-color: ${({ bg }) => (bg ? bg : "var(--dark-blue)")};
-    color: ${({ text }) => (text ? text : "white")};
+    background-color: ${({ hbg }) => (hbg ? hbg : "var(--dark-blue)")};
+    color: ${({ htext }) => (htext ? htext : "white")};
     border: 1px solid transparent;
   }
 `;

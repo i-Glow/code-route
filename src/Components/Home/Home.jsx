@@ -80,7 +80,7 @@ export default function Home() {
             <HiOutlineClipboardList style={{ fontSize: "32px" }} />
             <h4>Ready? You can start testing what you learned here.</h4>
           </Flex>
-          <Link to="/">
+          <Link to="/test">
             <Flex
               style={{ color: "var(--dark-blue)", textDecoration: "underline" }}
             >

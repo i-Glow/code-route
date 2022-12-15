@@ -43,3 +43,16 @@ const indication = [
 ];
 
 export { indication };
+
+export default [
+  { img: C1a, choices: [], solution: 2 },
+  { img: C6, choices: [], solution: 2 },
+  { img: C20a, choices: [], solution: 2 },
+  { img: C8, choices: [], solution: 2 },
+  { img: C30, choices: [], solution: 2 },
+  { img: C207, choices: [], solution: 2 },
+  { img: CE2a, choices: [], solution: 2 },
+  { img: CE14, choices: [], solution: 2 },
+  { img: C12, choices: [], solution: 2 },
+  { img: panneau_bifurcation, choices: [], solution: 2 },
+];
