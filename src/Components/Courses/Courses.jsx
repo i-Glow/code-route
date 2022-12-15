@@ -18,7 +18,7 @@ export default function Courses() {
             <img src={panneaux} alt="panneaux" />
             <Progress pg={4} total={4} />
           </Card>
-          <Card>
+          <Card onClick={() => navigate("/Priorite")}>
             Priorite
             <Progress pg={5} total={18} />
           </Card>

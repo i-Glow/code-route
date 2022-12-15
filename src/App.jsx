@@ -5,6 +5,7 @@ import Courses from "./Components/Courses/Courses";
 import Panneaux from "./Components/Courses/Panneaux/Panneaux";
 import PanneauxTemplate from "./Components/Courses/Panneaux/PanneauxTemplate";
 import OutletTemplate from "./Components/Courses/Panneaux/Danger/OutletTemplate";
+import Priorite from "./Components/Courses/Priorite/Priorite";
 import Test from "./Components/TestPage/Test";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           <Route path="interdictions" element={<OutletTemplate />} />
           <Route path="obligations" element={<OutletTemplate />} />
           <Route path="indications" element={<OutletTemplate />} />
+        </Route>
+        <Route path="/priorite" element={<Priorite />}>
+
         </Route>
       </Routes>
     </Router>
