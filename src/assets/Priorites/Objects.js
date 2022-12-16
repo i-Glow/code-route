@@ -1,7 +1,7 @@
-import A1 from "../../../assets/Priorites/IMG/A1.png";
-import A2 from "../../../assets/Priorites/IMG/A2.png";
-import A3 from "../../../assets/Priorites/IMG/A3.png";
-import A4 from "../../../assets/Priorites/IMG/A4.png";
+import A1 from "./IMG/A1.png";
+import A2 from "./IMG/A2.png";
+import A3 from "./IMG/A3.png";
+import A4 from "./IMG/A4.png";
 
 export const Items = [
     {

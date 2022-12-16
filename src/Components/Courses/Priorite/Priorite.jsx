@@ -5,7 +5,7 @@ import Navigation from "../../shared/Navigation";
 import { Flex } from "../../shared/Flex";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { Button } from "../../shared/Button";
-import { Items } from "./Objects";
+import { Items } from "../../../assets/Priorites/Objects";
 export default function Priorite() {
   const navigate = useNavigate();
   const [showShapes, setShowShapes] = useState(false);
