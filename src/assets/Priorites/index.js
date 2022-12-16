@@ -9,7 +9,7 @@ export default [
     choices: ["C - B - A", "A - B - C", "A - C - B", "B - C - A"],
     solution: 0,
   },
-  { img: ponctuelle, choices: [], solution: 1 },
-  { img: prioritaire, choices: [], solution: 1 },
-  { img: rond_point, choices: [], solution: 1 },
+  { img: ponctuelle, choices: [ "Jaune - Rouge - Violet", "Rouge - Jaune - Violet"], solution: 1 },
+  { img: prioritaire, choices: ["A - B","B - A"], solution: 0 },
+  { img: rond_point, choices: ["A - B","B - A"], solution: 0 },
 ];
