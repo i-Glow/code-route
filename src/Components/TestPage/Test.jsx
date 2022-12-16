@@ -5,7 +5,7 @@ import { Flex } from "../shared/Flex";
 import { Answer, AnswersContainer, Wrapper } from "./styles";
 
 export default function Test() {
-  const EACH_ASSET_LENGTH = [5, 0, 3];
+  const EACH_ASSET_LENGTH = [7, 3];
 
   const [assetList, setAssetList] = useState();
 
@@ -22,7 +22,7 @@ export default function Test() {
   };
 
   const generateRandomTest = () => {
-    const types = ["panneaux", "questions", "priorites"];
+    const types = ["panneaux", "priorites"];
     let arr = [];
 
     for (let i = 0; i < types.length; i++) {
@@ -30,7 +30,8 @@ export default function Test() {
 
       while (arr.length < EACH_ASSET_LENGTH[i]) {
         nb = Math.floor(Math.random() * TestAssets[types[i]].length);
-        if (!TestAssets[types[i]].includes(nb))
+        console.log(arr);
+        if (!arr.includes(TestAssets[types[i]][nb]))
           arr.push(TestAssets[types[i]][nb]);
       }
     }

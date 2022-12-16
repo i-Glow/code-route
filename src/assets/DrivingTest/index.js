@@ -8,9 +8,8 @@ export default {
   panneaux: [
     ...DangerList,
     ...IndicationList,
-    InterdictionList,
-    ObligationList,
+    ...InterdictionList,
+    ...ObligationList,
   ],
   priorites: PrioriteList,
-  questions: [],
 };

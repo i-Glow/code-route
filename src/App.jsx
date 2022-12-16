@@ -27,9 +27,7 @@ function App() {
           <Route path="obligations" element={<OutletTemplate />} />
           <Route path="indications" element={<OutletTemplate />} />
         </Route>
-        <Route path="/priorite" element={<Priorite />}>
-
-        </Route>
+        <Route path="/priorite" element={<Priorite />} />
       </Routes>
     </Router>
   );

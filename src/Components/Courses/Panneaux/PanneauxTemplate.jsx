@@ -46,10 +46,7 @@ export default function PanneauxTemplate() {
               );
             })}
           </LinkGroup>
-          <LinkGroup url="/" name="Priorites">
-            <HoverLink to="/">ad</HoverLink>
-            <HoverLink to="/">awd</HoverLink>
-          </LinkGroup>
+          <HoverLink to="/priorite">Priorites</HoverLink>
         </LinkGroup>
         <HoverLink to="/test">Test</HoverLink>
       </SideBar>

@@ -1,38 +1,32 @@
-import { Wrapper, SignShapes, Container, Confirm, Seperator,Image } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { Wrapper, SignShapes, Container, Confirm, Seperator } from "./styles";
 import { Fragment, useState } from "react";
 import Navigation from "../../shared/Navigation";
 import { Flex } from "../../shared/Flex";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { Button } from "../../shared/Button";
 import { Items } from "../../../assets/Priorites/Objects";
+
 export default function Priorite() {
-  const navigate = useNavigate();
   const [showShapes, setShowShapes] = useState(false);
+  const [Page, setPage] = useState(0);
 
   async function updateShow(value) {
     setShowShapes(value);
     localStorage.setItem("showIntersectionTips", value);
   }
-  const ItemsLopped = Items.map((Element) => (
-    <Flex>
-      <h1>{Element.title}</h1>
-      <p>{Element.description}</p>
-      <img src={Element.src} />
-      <p> {Element.txt} </p>
-    </Flex>
-  ));
-  const [Page, setPage] = useState(0);
-  function IncremantePage(){
-    if(Page < Items.length-1){
-      setPage(Page+1);
-    } 
+
+  function IncremantePage() {
+    if (Page < Items.length - 1) {
+      setPage(Page + 1);
+    }
   }
-  function DecremantePage(){
-    if(Page > 0){
-      setPage(Page-1);
-    } 
+
+  function DecremantePage() {
+    if (Page > 0) {
+      setPage(Page - 1);
+    }
   }
+
   const consiel = [
     {
       text: "Les intersections dans le code de la route sont le croisement d'une ou plusieurs chaussées. Il en existe plusieurs types et il existe des règles spécifiques à respecter pour bien les franchir.",
@@ -49,7 +43,7 @@ export default function Priorite() {
     <Wrapper>
       <Container>
         <Navigation title="Priorite" />
-        {showShapes ? (
+        {/* {showShapes ? (
           <SignShapes>
             <h3 style={{ marginBottom: "20px" }}>
               Avant de commance un petit consiel:
@@ -73,40 +67,63 @@ export default function Priorite() {
               <TiArrowSortedDown />
             </Flex>
           </SignShapes>
+        )} */}
+        {Page === 0 ? (
+          <Flex direction="column" gap="30px" ai="flex-start">
+            <h2 style={{ marginBottom: "20px" }}>
+              Avant de commance un petit consiel:
+            </h2>
+            {consiel.map((el, key) => (
+              <Fragment key={key}>
+                <Signs title={el.title} text={el.text} />
+              </Fragment>
+            ))}
+          </Flex>
+        ) : (
+          <Flex direction="column" ai="flex-start">
+            {!Page ? (
+              <p>
+                À l'approche d'une intersection, le conducteur doit dans un
+                premier temps repérer la signalisation présente. Chaque type
+                d'intersection possède sa propre signalisation. Si aucune
+                indication n'est présente, il faut céder le passage à droite.
+              </p>
+            ) : null}
+            <h1>{Items[Page].title}</h1>
+            <p>{Items[Page].description}</p>
+            <img
+              src={Items[Page].src}
+              height="300px"
+              style={{ alignSelf: "center" }}
+            />
+            <p>{Items[Page].txt}</p>
+          </Flex>
         )}
-        <div>
-          {!Page ? <p>
-            À l'approche d'une intersection, le conducteur doit dans un premier
-            temps repérer la signalisation présente. Chaque type d'intersection
-            possède sa propre signalisation. Si aucune indication n'est
-            présente, il faut céder le passage à droite.
-          </p> : null}
-          <h1>{Items[Page].title}</h1>
-          <p>{Items[Page].description}</p>
-          <img src={Items[Page].src} />
-          <p>{Items[Page].txt}</p>
-          
-        </div>
-        <Flex jc="space-between">
-          {Page > 0 ? <Button onClick={() => DecremantePage()}>Previous</Button> : <div></div> }
-          {Page < 3 ? <Button onClick={() => IncremantePage()}>Next</Button> : <div></div> } 
-        </Flex >
+        <Flex jc="space-between" m="auto 0 0 0">
+          {Page > 0 ? (
+            <Button onClick={() => DecremantePage()}>Previous</Button>
+          ) : (
+            <div></div>
+          )}
+          {Page < Items.length - 1 ? (
+            <Button onClick={() => IncremantePage()}>Next</Button>
+          ) : (
+            <div></div>
+          )}
+        </Flex>
       </Container>
     </Wrapper>
   );
 }
 
-function Signs({ icon, title, text }) {
+function Signs({ title, text }) {
   function NewlineText(props) {
     const newText = props.split("\n").map((str) => <p>{str}</p>);
     return newText;
   }
   return (
     <div>
-      <Flex style={{ fontSize: "32px", gap: "20px" }}>
-        {icon}
-        <h4>{title}</h4>
-      </Flex>
+      <h3 style={{ lineHeight: "48px" }}>{title}</h3>
       <p>{NewlineText(text)}</p>
     </div>
   );
