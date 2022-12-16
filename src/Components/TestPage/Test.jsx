@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import TestAssets from "../../assets/DrivingTest";
-import { OutlinedButton } from "../shared/Button";
+import { Button, OutlinedButton } from "../shared/Button";
 import { Flex } from "../shared/Flex";
-import { Answer, AnswersContainer, Wrapper } from "./styles";
+import {
+  Answer,
+  AnswersContainer,
+  Column,
+  Container,
+  Line,
+  Table,
+  Wrapper,
+} from "./styles";
+import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 
 export default function Test() {
   const EACH_ASSET_LENGTH = [7, 3];
+  const navigate = useNavigate();
 
   const [assetList, setAssetList] = useState();
 
@@ -15,22 +26,26 @@ export default function Test() {
 
   const selectHandler = (value) => {
     if (page < 10 && selected !== -1) {
+      setAnswers((prev) => [...prev, value - 1]);
       setPage((prev) => prev + 1);
       setSelected(-1);
-      setAnswers((prev) => [...prev, value]);
+    } else {
+      navigate("/");
     }
   };
 
   const generateRandomTest = () => {
     const types = ["panneaux", "priorites"];
     let arr = [];
+    let total = 0;
 
     for (let i = 0; i < types.length; i++) {
       let nb;
+      total += EACH_ASSET_LENGTH[i];
 
-      while (arr.length < EACH_ASSET_LENGTH[i]) {
+      while (arr.length < total) {
         nb = Math.floor(Math.random() * TestAssets[types[i]].length);
-        console.log(arr);
+
         if (!arr.includes(TestAssets[types[i]][nb]))
           arr.push(TestAssets[types[i]][nb]);
       }
@@ -43,44 +58,86 @@ export default function Test() {
     generateRandomTest();
   }, []);
 
-  console.log(assetList);
-
   return (
     <Wrapper>
-      <Flex gap="100px" direction="column">
-        {page < 10 ? (
-          <>
-            {!!assetList && (
-              <img src={assetList[page]?.img} width="150px" alt="panneau" />
-            )}
-            <AnswersContainer>
+      <Container>
+        <Flex direction="column">
+          {page < 10 ? (
+            <>
               {!!assetList &&
-                assetList[page].choices?.map((el, key) => (
-                  <Answer
-                    onClick={() => setSelected(key)}
-                    selected={key === selected}
-                    key={key}
-                  >
-                    A. {el}
-                  </Answer>
+                (page < EACH_ASSET_LENGTH[0] ? (
+                  <img src={assetList[page]?.img} width="150px" alt="panneau" />
+                ) : (
+                  <img
+                    src={assetList[page]?.img}
+                    height="300px"
+                    alt="priorite"
+                  />
                 ))}
-            </AnswersContainer>
-          </>
-        ) : (
-          answers.map((el, key) => (
-            <div key={key}>
-              <span>{el}</span>
-              <span>{assetList[key]?.solution}</span>
-              <span>
-                {el === assetList[key]?.solution ? "correct" : "incorrect"}
-              </span>
-            </div>
-          ))
-        )}
-        <OutlinedButton onClick={() => selectHandler(selected + 1)}>
-          Select
-        </OutlinedButton>
-      </Flex>
+              <AnswersContainer style={{ margin: "80px 0 40px 0" }}>
+                {!!assetList &&
+                  assetList[page].choices?.map((el, key) => (
+                    <Answer
+                      onClick={() => setSelected(key)}
+                      selected={key === selected}
+                      key={key}
+                    >
+                      <Flex ai="start">
+                        <h4>{key + 1}.</h4>
+                        <p>{el}</p>
+                      </Flex>
+                    </Answer>
+                  ))}
+              </AnswersContainer>
+            </>
+          ) : (
+            <Table>
+              <Line>
+                <Column>
+                  <h2>Votre Reponse</h2>
+                </Column>
+                <Column>
+                  <h2>Solution</h2>
+                </Column>
+                <Column></Column>
+              </Line>
+              {answers.map((el, key) => (
+                <Line key={key}>
+                  <Column>{assetList[key]?.choices[el]}</Column>
+                  <Column>
+                    {assetList[key]?.choices[assetList[key]?.solution]}
+                  </Column>
+                  <Column>
+                    <Flex w="100%">
+                      {el === assetList[key]?.solution ? (
+                        <BsFillCheckCircleFill
+                          style={{ color: "green", fontSize: "22px" }}
+                        />
+                      ) : (
+                        <BsFillXCircleFill
+                          style={{ color: "red", fontSize: "22px" }}
+                        />
+                      )}
+                    </Flex>
+                  </Column>
+                </Line>
+              ))}
+            </Table>
+          )}
+          {page < 10 ? (
+            <OutlinedButton onClick={() => selectHandler(selected + 1)}>
+              Select
+            </OutlinedButton>
+          ) : (
+            <Button
+              style={{ margin: "40px 0" }}
+              onClick={() => selectHandler(selected + 1)}
+            >
+              Finish
+            </Button>
+          )}
+        </Flex>
+      </Container>
     </Wrapper>
   );
 }

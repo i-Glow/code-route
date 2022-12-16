@@ -35,7 +35,34 @@ export const obligation = [
 ];
 
 export default [
-  {img: B22a, choices: ["Piste ou bande obligatoire pour les cycles","Chemain obligatoire pour les cavaliers","Direction obligatoire a la prochaine intersection a gauche","Direction obligatoire a la prochaine intersection :tout droit",], response: 0},
-  {img: B40, choices: ["Chemin obligatoire pour pieton","Obligation de contournement par la droite","Fin Piste ou bande obligatoire pour les cycles","Fin de vitesse minimale obligatoire",], response: 2},
-  {img: obligation2d, choices: ["Direction obligatoire a la prochaine intersection a gauche","Chemain obligatoire pour les cavaliers","Direction obligatoire a la prochaine intersection :tout droit","Obligation de tourner a droite avant le panneau",], response: 3} 
-]
+  {
+    img: B22a,
+    choices: [
+      "Piste ou bande obligatoire pour les cycles",
+      "Chemain obligatoire pour les cavaliers",
+      "Direction obligatoire a la prochaine intersection a gauche",
+      "Direction obligatoire a la prochaine intersection :tout droit",
+    ],
+    solution: 0,
+  },
+  {
+    img: B40,
+    choices: [
+      "Chemin obligatoire pour pieton",
+      "Obligation de contournement par la droite",
+      "Fin Piste ou bande obligatoire pour les cycles",
+      "Fin de vitesse minimale obligatoire",
+    ],
+    solution: 2,
+  },
+  {
+    img: obligation2d,
+    choices: [
+      "Direction obligatoire a la prochaine intersection a gauche",
+      "Chemain obligatoire pour les cavaliers",
+      "Direction obligatoire a la prochaine intersection :tout droit",
+      "Obligation de tourner a droite avant le panneau",
+    ],
+    solution: 3,
+  },
+];

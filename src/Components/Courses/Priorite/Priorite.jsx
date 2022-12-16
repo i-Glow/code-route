@@ -1,19 +1,22 @@
-import { Wrapper, SignShapes, Container, Confirm, Seperator } from "./styles";
+import { Wrapper, Container } from "./styles";
 import { Fragment, useState } from "react";
 import Navigation from "../../shared/Navigation";
 import { Flex } from "../../shared/Flex";
-import { TiArrowSortedDown } from "react-icons/ti";
 import { Button } from "../../shared/Button";
 import { Items } from "../../../assets/Priorites/Objects";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Priorite() {
-  const [showShapes, setShowShapes] = useState(false);
+  const location = useLocation();
   const [Page, setPage] = useState(0);
 
-  async function updateShow(value) {
-    setShowShapes(value);
-    localStorage.setItem("showIntersectionTips", value);
-  }
+  const saveLastPage = (page) => {
+    localStorage.setItem(
+      "lastPage",
+      JSON.stringify({ path: "/priorite", page })
+    );
+  };
 
   function IncremantePage() {
     if (Page < Items.length - 1) {
@@ -27,7 +30,15 @@ export default function Priorite() {
     }
   }
 
-  const consiel = [
+  useEffect(() => {
+    setPage(location?.state?.page || 0);
+  }, []);
+
+  useEffect(() => {
+    saveLastPage(Page);
+  }, [Page, location]);
+
+  const conseil = [
     {
       text: "Les intersections dans le code de la route sont le croisement d'une ou plusieurs chaussées. Il en existe plusieurs types et il existe des règles spécifiques à respecter pour bien les franchir.",
     },
@@ -43,37 +54,12 @@ export default function Priorite() {
     <Wrapper>
       <Container>
         <Navigation title="Priorite" />
-        {/* {showShapes ? (
-          <SignShapes>
-            <h3 style={{ marginBottom: "20px" }}>
-              Avant de commance un petit consiel:
-            </h3>
-            {consiel.map((el, key) => (
-              <Fragment key={key}>
-                <Signs icon={el.icon} title={el.title} text={el.text} />
-                {key !== consiel.length - 1 ? <Seperator /> : null}
-              </Fragment>
-            ))}
-            <Confirm onClick={() => updateShow(false)}>Got it</Confirm>
-          </SignShapes>
-        ) : (
-          <SignShapes sm={true}>
-            <h3>Aborder une intersection</h3>
-            <Flex
-              style={{ cursor: "pointer" }}
-              onClick={() => updateShow(true)}
-            >
-              <p>expand</p>
-              <TiArrowSortedDown />
-            </Flex>
-          </SignShapes>
-        )} */}
         {Page === 0 ? (
           <Flex direction="column" gap="30px" ai="flex-start">
             <h2 style={{ marginBottom: "20px" }}>
-              Avant de commance un petit consiel:
+              Avant de commance un petit conseil:
             </h2>
-            {consiel.map((el, key) => (
+            {conseil.map((el, key) => (
               <Fragment key={key}>
                 <Signs title={el.title} text={el.text} />
               </Fragment>

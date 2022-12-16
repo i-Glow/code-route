@@ -18,6 +18,7 @@ export const Container = styled.div`
   padding: 20px;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+  cursor: pointer;
 `;
 
 export const SubCtn = styled.div`
@@ -31,6 +32,7 @@ export const SubCtn = styled.div`
   & > :last-child {
     align-self: flex-end;
   }
+  cursor: pointer;
 `;
 
 export const TempImg = styled.div`

@@ -46,6 +46,7 @@ export default function OutletTemplate() {
       JSON.stringify({ path: location.pathname, route, page })
     );
   };
+
   useEffect(() => {
     setPage(location?.state?.page || 0);
   }, [location]);

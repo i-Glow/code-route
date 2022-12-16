@@ -20,24 +20,24 @@ export default function Home() {
   return (
     <Wrapper>
       {!lastPage ? (
-        <div>
+        <Flex direction="column" m="0 0 40px 0">
           <h2>Welcome to the route code learning app</h2>
-          <p>
-            By finishing our courses you'll be knowing different road signs and
-            driver priorities.
+          <p style={{ fontSize: "20px" }}>
+            En terminant nos cours, vous connaîtrez différents panneaux routiers
+            et priorités des chauffeurs.
           </p>
-          You will be taking your diving test with confidence and a good
-          knowledge of roads.
-          <p></p>
-        </div>
+          <p style={{ fontSize: "20px" }}>
+            Vous passerez votre test de plongée avec confiance et une bonne
+            connaissance des routes.
+          </p>
+        </Flex>
       ) : (
         <>
           <h2>Welcome back!</h2>
           <Flex>
             <TempImg />
             <div>
-              <h4>Continue where you left off</h4>
-              <h4>Name of the sign</h4>
+              <h4>Continuez là où vous vous étiez arrêté</h4>
             </div>
           </Flex>
           <Link
@@ -56,35 +56,37 @@ export default function Home() {
           </Link>
         </>
       )}
-      <Container>
+      <Container onClick={() => navigate("/courses")}>
         <SubCtn>
           <h3>Courses</h3>
           <Flex gap="20px">
             <GoBook style={{ fontSize: "32px" }} />
-            <h4>Start discovering how the roads work</h4>
+            <h4>Commencez à découvrir comment fonctionnent les routes</h4>
           </Flex>
           <Link to="/courses">
             <Flex
               style={{ color: "var(--dark-blue)", textDecoration: "underline" }}
             >
-              <p>Browse courses</p>
+              <p>Parcourir les cours</p>
               <TbArrowRight />
             </Flex>
           </Link>
         </SubCtn>
       </Container>
-      <Container>
+      <Container onClick={() => navigate("/test")}>
         <SubCtn>
           <h3>Driving test</h3>
           <Flex gap="20px">
             <HiOutlineClipboardList style={{ fontSize: "32px" }} />
-            <h4>Ready? You can start testing what you learned here.</h4>
+            <h4>
+              Prêt? Vous pouvez commencer à tester ce que vous avez appris ici
+            </h4>
           </Flex>
           <Link to="/test">
             <Flex
               style={{ color: "var(--dark-blue)", textDecoration: "underline" }}
             >
-              <p>Test yourself!</p>
+              <p>Testez-vous!</p>
               <TbArrowRight />
             </Flex>
           </Link>
