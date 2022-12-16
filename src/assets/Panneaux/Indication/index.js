@@ -45,14 +45,14 @@ const indication = [
 export { indication };
 
 export default [
-  { img: C1a, choices: [], solution: 2 },
-  { img: C6, choices: [], solution: 2 },
-  { img: C20a, choices: [], solution: 2 },
-  { img: C8, choices: [], solution: 2 },
-  { img: C30, choices: [], solution: 2 },
-  { img: C207, choices: [], solution: 2 },
-  { img: CE2a, choices: [], solution: 2 },
-  { img: CE14, choices: [], solution: 2 },
-  { img: C12, choices: [], solution: 2 },
-  { img: panneau_bifurcation, choices: [], solution: 2 },
+  { img: C1a, choices: ["Zone de stationnement","Ralentisseur","Voie affectees","Voie verte"], solution: 0 },
+  { img: C6, choices: ["Signalisation par voie","Route a acces reglemente","station d'arret d'autobus","Voie affectees"], solution: 2 },
+  { img: C20a, choices: ["Voie verte","Presignalisation d'une impasse au prochain carrefour","Zone de stationnement","Passage pour pietons"], solution: 3 },
+  { img: C8, choices: ["Passage pour pieton","Entre d'autoroute","Emplacement d'arret d'urgence","Route a acces reglemente"], solution: 2 },
+  { img: C30, choices: ["Ralentisseur","Signalisation par voie","Fin de creneau de depassement","Presignalisation d'une impasse au prochain carrefour"], solution: 2 },
+  { img: C207, choices: ["Sortie d'autoroute","Reduction du nombre de voies","Zone de stationnement","Entree d'autoroute"], solution: 3 },
+  { img: CE2a, choices: ["Route a acces reglemente","Post d'appel d'urgence","Impasse","Voie affectees"], solution: 1 },
+  { img: CE14, choices: ["Circulation dans les deux sens, priorite pour le sens inverse","Installation accessibles aux personnes handicapees","Reduction du nombre de voies","Entree de tunnel"], solution: 1 },
+  { img: C12, choices: ["Circulation a sens unique","Reduction du nombre de voies","Ralentisseur","Signalisation par voie"], solution: 0 },
+  { img: panneau_bifurcation, choices: ["Zone de stationnement","Presignalisation d'une impasse au prochain carrefour","voie de detresse","Voie verte"], solution: 2 },
 ];

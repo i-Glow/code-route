@@ -102,16 +102,15 @@ export const interdiction = [
 ];
 
 export default [
-  { img: B3, choices: [], solution: 3 },
-  { img: B6d, choices: [], solution: 3 },
-  { img: B9a, choices: [], solution: 3 },
-  { img: B11, choices: [], solution: 3 },
-  { img: B12, choices: [], solution: 3 },
-  { img: B14_50, choices: [], solution: 3 },
-  { img: B14_110, choices: [], solution: 3 },
-  { img: B15, choices: [], solution: 3 },
-  { img: B31, choices: [], solution: 3 },
-  { img: B34, choices: [], solution: 3 },
-  { img: panneau_stationnement_1_15, choices: [], solution: 3 },
-  { img: panneau_stationnement_16_31, choices: [], solution: 3 },
+  { img: B3, choices: ["Interdiction de depasser","vitesse limitee a 110km/h","Acces interdit aux vehicules dont la largeur depasse la valeur indique","Cedez le passage pour le sens inverse",], solution: 0 },
+  { img: B6d, choices: ["Cedez le passage pour le sens inverse","Acces interdit aux vehicules dont la largeur depasse la valeur indique","Signaux sonores interdits","Arret et stationnement interdits",], solution: 3 },
+  { img: B9a, choices: ["vitesse limitee a 50km/h","Stationnement interdit du 1er au 15 du mois du cote du panneau","Arret interdit aux pietons","Fin de toutes les interdictions precedemment signales",], solution: 2 },
+  { img: B11, choices: ["Fin de toutes les interdictions precedemment signales","Interdiction de depasser","Acces interdit aux vehicules dont la largeur depasse la valeur indique","Interdiction de fair demi-tour",], solution: 2 },
+  { img: B12, choices: ["Sens interdit","Acces interdit aux vehicules dont la largeur depasse la valeur indique","Signaux sonores interdits","Arret interdit aux pietons",], solution: 1 },
+  { img: B14_50, choices: ["Stationnement interdit du 1er au 15 du mois du cote du panneau","Interdiction de fair demi-tour","Interdiction de depasser","vitesse limitee a 50km/h",], solution: 3 },
+  { img: B14_110, choices: ["vitesse limitee a 110km/h","Fin d'interdiction de depasser","Arret et stationnement interdits","Signaux sonores interdits",], solution: 0 },
+  { img: B15, choices: ["Arret interdit aux pietons","Sens interdit","Cedez le passage pour le sens inverse","Interdiction de fair demi-tour",], solution: 2 },
+  { img: B31, choices: ["Sens interdit","Fin d'interdiction de depasser","Signaux sonores interdits","Fin de toutes les interdictions precedemment signales",], solution: 3 },
+  { img: B34, choices: ["Fin d'interdiction de depasser","Interdiction de depasser","vitesse limitee a 50km/h","Acces interdit aux vehicules dont la largeur depasse la valeur indique",], solution: 0 },
+  { img: panneau_stationnement_1_15, choices: ["Acces interdit aux vehicules dont la largeur depasse la valeur indique","Stationnement interdit du 1er au 15 du mois du cote du panneau","vitesse limitee a 110km/h","Arret et stationnement interdits",], solution: 1 }
 ];
