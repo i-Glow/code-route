@@ -42,6 +42,8 @@ export default function Test() {
     generateRandomTest();
   }, []);
 
+  console.log(assetList);
+
   return (
     <Wrapper>
       <Flex gap="100px" direction="column">
@@ -51,15 +53,16 @@ export default function Test() {
               <img src={assetList[page]?.img} width="150px" alt="panneau" />
             )}
             <AnswersContainer>
-              {[...Array(4).keys()].map((el, key) => (
-                <Answer
-                  onClick={() => setSelected(key)}
-                  selected={key === selected}
-                  key={key}
-                >
-                  A. {el}
-                </Answer>
-              ))}
+              {!!assetList &&
+                assetList[page].choices?.map((el, key) => (
+                  <Answer
+                    onClick={() => setSelected(key)}
+                    selected={key === selected}
+                    key={key}
+                  >
+                    A. {el}
+                  </Answer>
+                ))}
             </AnswersContainer>
           </>
         ) : (
