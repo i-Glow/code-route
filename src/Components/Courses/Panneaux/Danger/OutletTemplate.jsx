@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Flex } from "../../../shared/Flex";
 import Navigation from "../../../shared/Navigation";
 import { Body, Container, Grid, Wrapper } from "./styles";

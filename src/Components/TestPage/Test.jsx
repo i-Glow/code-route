@@ -13,6 +13,8 @@ import {
   Wrapper,
 } from "./styles";
 import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
+import { GrCircleAlert } from "react-icons/gr";
+import Navigation from "../shared/Navigation";
 
 export default function Test() {
   const EACH_ASSET_LENGTH = [7, 3];
@@ -25,12 +27,12 @@ export default function Test() {
   const [answers, setAnswers] = useState([]);
 
   const selectHandler = (value) => {
-    if (page < 10 && selected !== -1) {
+    if (page < 10 && selected >= 0) {
       setAnswers((prev) => [...prev, value - 1]);
       setPage((prev) => prev + 1);
       setSelected(-1);
     } else {
-      navigate("/");
+      setSelected(-2);
     }
   };
 
@@ -64,6 +66,8 @@ export default function Test() {
         <Flex direction="column">
           {page < 10 ? (
             <>
+              <Navigation title={`${page + 1} / 10`} />
+              <div style={{ margin: "10px 0" }}></div>
               {!!assetList &&
                 (page < EACH_ASSET_LENGTH[0] ? (
                   <img src={assetList[page]?.img} width="150px" alt="panneau" />
@@ -74,7 +78,7 @@ export default function Test() {
                     alt="priorite"
                   />
                 ))}
-              <AnswersContainer style={{ margin: "80px 0 40px 0" }}>
+              <AnswersContainer style={{ margin: "60px 0 40px 0" }}>
                 {!!assetList &&
                   assetList[page].choices?.map((el, key) => (
                     <Answer
@@ -125,14 +129,19 @@ export default function Test() {
             </Table>
           )}
           {page < 10 ? (
-            <OutlinedButton onClick={() => selectHandler(selected + 1)}>
-              Select
-            </OutlinedButton>
+            <>
+              {selected === -2 ? (
+                <Flex>
+                  <GrCircleAlert style={{ fontSize: "22px" }} />
+                  <p>You can't skip questions! please choose an answer.</p>
+                </Flex>
+              ) : null}
+              <OutlinedButton onClick={() => selectHandler(selected + 1)}>
+                Select
+              </OutlinedButton>
+            </>
           ) : (
-            <Button
-              style={{ margin: "40px 0" }}
-              onClick={() => selectHandler(selected + 1)}
-            >
+            <Button style={{ margin: "40px 0" }} onClick={() => navigate("/")}>
               Finish
             </Button>
           )}

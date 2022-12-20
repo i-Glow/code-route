@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(100px, 15%) 1fr;
 `;
+
 export const Card = styled.div`
   width: 100%;
   padding: 20px;
@@ -11,6 +13,7 @@ export const Card = styled.div`
   box-shadow: var(--box-shadow);
   cursor: pointer;
 `;
+
 export const Container = styled.div`
   width: 1080px;
   height: 100vh;
@@ -20,6 +23,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 50px;
 `;
+
 export const SignShapes = styled(Card)`
   padding: ${({ sm }) => (sm ? "20px" : "40px")};
   display: flex;
@@ -30,6 +34,7 @@ export const SignShapes = styled(Card)`
   transition: height 0.2s ease-in-out;
   cursor: default;
 `;
+
 export const Confirm = styled.button`
   background-color: var(--dark-blue);
   border: 1px solid transparent;
@@ -48,6 +53,7 @@ export const Confirm = styled.button`
     background-color: transparent;
   }
 `;
+
 export const Seperator = styled.div`
   height: 1px;
   width: 80%;
@@ -55,7 +61,8 @@ export const Seperator = styled.div`
   align-self: center;
   margin: 30px 0;
 `;
+
 export const Image = styled.div`
-  height:200px;
-  width:300px
-`
+  height: 200px;
+  width: 300px;
+`;

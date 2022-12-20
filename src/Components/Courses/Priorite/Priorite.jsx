@@ -2,13 +2,15 @@ import { Wrapper, Container } from "./styles";
 import { Fragment, useState } from "react";
 import Navigation from "../../shared/Navigation";
 import { Flex } from "../../shared/Flex";
-import { Button } from "../../shared/Button";
+import { Button, OutlinedButton } from "../../shared/Button";
 import { Items } from "../../../assets/Priorites/Objects";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import RouteTree from "../../shared/RouteTree";
 
 export default function Priorite() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [Page, setPage] = useState(0);
 
   const saveLastPage = (page) => {
@@ -52,12 +54,13 @@ export default function Priorite() {
   ];
   return (
     <Wrapper>
+      <RouteTree />
       <Container>
         <Navigation title="Priorite" />
         {Page === 0 ? (
           <Flex direction="column" gap="30px" ai="flex-start">
             <h2 style={{ marginBottom: "20px" }}>
-              Avant de commance un petit conseil:
+              Avant de commencer, voici un conseil:
             </h2>
             {conseil.map((el, key) => (
               <Fragment key={key}>
@@ -87,14 +90,16 @@ export default function Priorite() {
         )}
         <Flex jc="space-between" m="auto 0 0 0">
           {Page > 0 ? (
-            <Button onClick={() => DecremantePage()}>Previous</Button>
+            <OutlinedButton onClick={() => DecremantePage()}>
+              Previous
+            </OutlinedButton>
           ) : (
             <div></div>
           )}
           {Page < Items.length - 1 ? (
             <Button onClick={() => IncremantePage()}>Next</Button>
           ) : (
-            <div></div>
+            <Button onClick={() => navigate("/courses")}>Finish</Button>
           )}
         </Flex>
       </Container>
@@ -104,13 +109,13 @@ export default function Priorite() {
 
 function Signs({ title, text }) {
   function NewlineText(props) {
-    const newText = props.split("\n").map((str) => <p>{str}</p>);
+    const newText = props.split("\n").map((str, key) => <p key={key}>{str}</p>);
     return newText;
   }
   return (
     <div>
       <h3 style={{ lineHeight: "48px" }}>{title}</h3>
-      <p>{NewlineText(text)}</p>
+      {NewlineText(text)}
     </div>
   );
 }

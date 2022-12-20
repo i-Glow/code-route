@@ -3,12 +3,23 @@ import { Flex } from "../shared/Flex";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
-  gap: 20px;
+  gap: 40px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 70px;
+`;
+
+export const TopCont = styled(Flex)`
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 400px;
+  box-shadow: var(--box-shadow);
+  font-size: 28px;
+  padding: 20px;
+  background-color: var(--winter);
 `;
 
 export const Container = styled.div`

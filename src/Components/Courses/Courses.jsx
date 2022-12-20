@@ -3,7 +3,6 @@ import { Flex } from "../shared/Flex";
 import { Card, Container, Wrapper } from "./styles";
 import panneaux from "../../assets/PanneauxGenerales/panneaux.png";
 import priorite from "../../assets/Priorites/priorite.png";
-import Progress from "./Progress";
 import Navigation from "../shared/Navigation";
 
 export default function Courses() {

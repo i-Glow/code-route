@@ -85,7 +85,7 @@ export default function Panneaux() {
         {showShapes ? (
           <SignShapes>
             <h3 style={{ marginBottom: "20px" }}>
-              Before you start there are forms of road signs:
+              Avant de commencer il existe des formes de signalisation routière:
             </h3>
             {signs.map((el, key) => (
               <Fragment key={key}>
@@ -93,7 +93,7 @@ export default function Panneaux() {
                 {key !== signs.length - 1 ? <Seperator /> : null}
               </Fragment>
             ))}
-            <Confirm onClick={() => updateShow(false)}>Got it</Confirm>
+            <Confirm onClick={() => updateShow(false)}>J'ai compris</Confirm>
           </SignShapes>
         ) : (
           <SignShapes sm={true}>
